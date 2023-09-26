@@ -1,10 +1,10 @@
-Import streamlit as st
-From stmol import showmol
-Import py3Dmol
-Import biotite.structure.io as bsio
+import streamlit as st
+from stmol import showmol
+import py3Dmol
+import biotite.structure.io as bsio
 
-St.sidebar.title(‘ EMSFold’)
-St.sidebar.write(‘ EMSFold is an end to end single sequence protein structure predictor based on the ESM-2 language model’)
+st.sidebar.title(‘ EMSFold’)
+st.sidebar.write(‘ EMSFold is an end to end single sequence protein structure predictor based on the ESM-2 language model’)
 
 #stmol
 def render_mol(pdb):
