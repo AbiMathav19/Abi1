@@ -24,7 +24,7 @@ txt = st.sidebar.text_area(‘Input sequence’, DEFAULT_SEQ, height = 275)
 #EMSFold
 def update(sequence=txt):
 	headers = {
-		‘Content-Type’ : ‘application/x-www-form-urlencoded’,
+		‘Content-Type’ : ‘application/x-www-form-urlencoded’,headers=headers, data=sequence)
 	}
 	reponse = requests.post(‘https://api.esmatlas.com/foldsequennce/v1/pdb/’ , 
 	name = sequence[:3] + sequence[-3:]
