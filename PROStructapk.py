@@ -44,7 +44,7 @@ def update(sequence=txt):
 
     # plDDT value is stored in the B-factor field
     st.subheader('plDDT')
-    st.write('plDDT is a per-residue estimate of the confidence in prediction on a scale from 0-100.')
+    st.write('plDDT is a per-residue estimate of the confidence in prediction on a scale from 0-1.')
     st.info(f'plDDT: {b_value}')
 
     st.download_button(
