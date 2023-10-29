@@ -8,7 +8,7 @@ st.sidebar.write(' EMSFold is an end to end single sequence protein structure pr
 
 #stmol
 def render_mol(pdb):
-pdbview = py3Dmol.view()
+	pdbview = py3Dmol.view()
        	pdbview.addModel(pdb,'pdb')
  	pdbview.setStyle({‘cartoon’:{'color':'spectrum'}})
 	pdbview.setBackgroundColor'white') #(‘0xeeeeee’)
