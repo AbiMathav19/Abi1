@@ -23,18 +23,18 @@ txt = st.sidebar.text_area('Input sequence', DEFAULT_SEQ, height = 275)
 
 #EMSFold
 def update(sequence=txt):
-	headers = {
-		'Content-Type' : 'application/x-www-form-urlencoded',headers=headers, data=sequence)
-	}
-	reponse = requests.post('https://api.esmatlas.com/foldsequennce/v1/pdb/' , 
-	name = sequence[:3] + sequence[-3:]
-	pdb_string = response.content.decode('utf-8')
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+    }
+    response = requests.post('https://api.esmatlas.com/foldSequence/v1/pdb/',headers=headers,data=sequence)
+    name = sequence[:3] + sequence[-3:]
+    pdb_string = response.content.decode('utf-8')
 
-	with open( 'predicted.pdb' , 'w')  as f:
-		f.write(pdb_string)
-	struct = bsio.load_structure(' predicted.pdb' , extra_fields=["b_factor"])
-	b_value = round(struct.b_factor.mean() , 4)
+    with open('predicted.pdb','w') as f:
+        f.write(pdb_string)
 
+    struct = bsio.load_structure('predicted.pdb',extra_fields=["b_factor"])
+    b_value = round(struct.b_factor.mean(), 4)
 	#display protein structure
 	st.subheader('Structure predicted')
 	render_mol(pdb_string)
