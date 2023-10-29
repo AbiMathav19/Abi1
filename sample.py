@@ -35,21 +35,21 @@ def update(sequence=txt):
 
     struct = bsio.load_structure('predicted.pdb',extra_fields=["b_factor"])
     b_value = round(struct.b_factor.mean(), 4)
-	#display protein structure
-	st.subheader('Structure predicted')
-	render_mol(pdb_string)
+   #display protein structure
+    st.subheader('Structure predicted')
+    render_mol(pdb_string)
 	
 	#pIDDT value stored in the B-factor field
-	st.subheader('pIDDT')
-      	st.write('pIDDT is a pre-residue estimate of the confidence in prediction. Higher the value better the prediction')
-	st.info(f'pIDDT : {b_value}')
+    st.subheader('pIDDT')
+    st.write('pIDDT is a pre-residue estimate of the confidence in prediction. Higher the value better the prediction')
+    st.info(f'pIDDT : {b_value}')
 
-	st.download_button(
+    st.download_button(
 		label = "Download PDB" ,
 		data = pdb_string,
 		file_name = 'predicted.pdb' ,
 		mime = 'text/plain' ,
-	)
+    )
 predict = st.sidebar.button('Predict' , on_click=update)
 
 if not predict:
